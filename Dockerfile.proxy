@@ -1,0 +1,12 @@
+FROM bitnami/python:3.10
+
+EXPOSE 8080
+
+WORKDIR /srv
+
+RUN pip install mitmproxy beautifulsoup4 requests
+
+COPY addons.py /srv
+COPY certs /srv/certs
+
+CMD mitmdump -s addons.py --set confdir=/srv/certs

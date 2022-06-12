@@ -1,0 +1,5 @@
+FROM linuxserver/sonarr
+
+COPY certs/mitmproxy-ca-cert.pem /usr/local/share/ca-certificates/mitmproxy.crt
+RUN update-ca-certificates
+
