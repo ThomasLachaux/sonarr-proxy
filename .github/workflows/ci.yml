@@ -20,4 +20,12 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/thomaslachaux/sonarr-proxy:latest
+          tags: ghcr.io/thomaslachaux/sonarr-proxy:sonarr
+          file: Dockerfile.sonarr
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ghcr.io/thomaslachaux/sonarr-proxy:proxy
+          file: Dockerfile.proxy
